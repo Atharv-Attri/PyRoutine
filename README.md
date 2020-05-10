@@ -7,5 +7,5 @@ Use:
 ```Python
 from PyRoutine import track, click
 track.get_input()
-click.autoclick(interval)
+click.autoclick(1)
 ```
