@@ -6,18 +6,3 @@
 #or if the program does not run at all.
 #
 #
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-from track import get_input
-from click import click
-get_input()
-click("clicklist.txt")

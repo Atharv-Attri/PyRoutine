@@ -1,43 +1,43 @@
 import pyautogui
+import json
 from pynput import keyboard
 click_list = []
 x = []
 y = []
+current = set()
+mousecombo = {keyboard.Key.alt, keyboard.KeyCode.from_char("p")}
+end = {keyboard.Key.alt, keyboard.KeyCode.from_char("f")}
+print("ready")
 def on_press(key):
-    try:
-        if key.char == "c":
-            # do something
-            print("c")
-            click_list.append(pyautogui.position())
-            
-        elif key.char == "v":
-            # do something else
-            return False  # Stop listener
-    except AttributeError as ex:
-        print(ex)
+    """Ignore for end-user"""
+    if key in mousecombo:
+        current.add(key)
+        print("something")
+        click_list.append(pyautogui.position())
+    elif key in end:
+        current.add(key)
+        print("end")
+        return False
 
 def on_release(key):
+    """Ignore for end-user"""
     if key == keyboard.Key.esc:
         # Stop listener
         return False
+    try: current.remove(key)
+    except KeyError: pass
 
-def get_input():
+
+def get_input(file_name = 'data.json'):
+    """file_name: the file name that you would like the logs to go to. By defualt it's data.json.
+    If you change it here, be sure to specify it on other functions like click.autoclick().
+    This function gets the input from the user that it is supposed to replicate"""
     listener = keyboard.Listener(on_press=on_press, on_release=on_release)
     listener.start()
     listener.join() # wait till listener will stop
     # other stuff        
-    x = [i[0] for i in click_list]
-    y = [i[1] for i in click_list]
-    with open('clicklist.txt', 'w') as filehandle:
-            for i in range(0,x.__len__()):
-                filehandle.write(str(click_list[i])+"\n")
+    #x = [i[0] for i in click_list]
+    #y = [i[1] for i in click_list]
+    with open(file_name, 'w') as outfile:
+        json.dump(click_list, outfile)
     return(0)
-
-get_input()
-#print([i[0] for i in click_list])
-#x = [i[0] for i in click_list]
-#y = [i[1] for i in click_list]
-#for i in range(0, y.__len__()):
-#    print(x[i])
-#    print(y[i])
-#    pyautogui.click(x[i], y[i])
