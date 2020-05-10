@@ -9,3 +9,4 @@ from PyRoutine import track, click
 track.get_input()
 click.autoclick(1)
 ```
+As Simple as that! 
