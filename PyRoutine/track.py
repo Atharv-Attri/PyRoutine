@@ -29,7 +29,7 @@ def on_release(key):
 
 
 def get_input(file_name = 'data.json'):
-    """file_name: the file name that you would like the logs to go to. By defualt it's data.json.
+    """file_name: the file name that you would like the logs to go to. By default it's data.json.
     If you change it here, be sure to specify it on other functions like click.autoclick().
     This function gets the input from the user that it is supposed to replicate"""
     listener = keyboard.Listener(on_press=on_press, on_release=on_release)

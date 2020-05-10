@@ -11,11 +11,11 @@ setuptools.setup(
     description="A program to redo mouse functions.",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/pypa/sampleproject",
+    url="https://github.com/Atharv2/PyRoutine",
     packages=setuptools.find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",
-        "License :: OSI Approved :: MIT License",
+        "License:: OSI Approved:: GNU Lesser General Public License v3(LGPLv3)",
         "Operating System :: OS Independent",
     ],
     python_requires='>=3.0',
