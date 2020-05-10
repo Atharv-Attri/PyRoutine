@@ -4,7 +4,7 @@ click points as you wish. Once you are done, you should press alt+f. The system 
 Right now, this system can only do right clicks. More functionality is under development.
 
 Use:
-```
+```Python
 from PyRoutine import track, click
 track.get_input()
 click.autoclick(interval)
