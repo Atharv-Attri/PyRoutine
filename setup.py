@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="PyRoutine", 
-    version="1.1.3",
+    version="1.2.1",
     author="Atharv2",
     author_email="atharv260107@gmail.com",
     description="A program to redo mouse functions.",

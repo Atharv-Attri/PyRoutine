@@ -7,16 +7,16 @@ y = []
 current = set()
 mousecombo = {keyboard.Key.alt, keyboard.KeyCode.from_char("p")}
 end = {keyboard.Key.alt, keyboard.KeyCode.from_char("f")}
-print("ready")
+print("ready!")
 def on_press(key):
     """Ignore for end-user"""
     if key in mousecombo:
         current.add(key)
-        print("something")
+        print("Position Marked")
         click_list.append(pyautogui.position())
     elif key in end:
         current.add(key)
-        print("end")
+        print("ended \n, processing, this might take a few seconds.")
         return False
 
 def on_release(key):
